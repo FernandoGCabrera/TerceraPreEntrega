@@ -53,7 +53,32 @@ function ready() {
 
 // Elimino todos los elementos del carrito y lo ocultamos
 function pagarClicked() {
-  alert("Gracias por la compra");
+  // popUp al realizar una compra
+  let timerInterval;
+  Swal.fire({
+    title: "Muchas gracias por su compra! 🥳",
+    width: "570px",
+    icon: "success",
+    html: "Este mensaje se autodestruira en <b></b> millisegundos.💣💥",
+    timer: 4000,
+    timerProgressBar: true,
+    didOpen: () => {
+      Swal.showLoading();
+      const b = Swal.getHtmlContainer().querySelector("b");
+      timerInterval = setInterval(() => {
+        b.textContent = Swal.getTimerLeft();
+      }, 100);
+    },
+    willClose: () => {
+      clearInterval(timerInterval);
+    },
+  }).then((result) => {
+    /* Read more about handling dismissals below */
+    if (result.dismiss === Swal.DismissReason.timer) {
+      console.log("I was closed by the timer");
+    }
+  });
+
   // Elimino todos los elmentos del carrito
   let carritoItems = document.getElementsByClassName("carrito-items")[0];
   while (carritoItems.hasChildNodes()) {
@@ -67,7 +92,6 @@ function pagarClicked() {
 
   // Ocultar el carrito
   ocultarCarrito();
-
 }
 
 // Funcion que guarda los items en LocalStorage
@@ -125,7 +149,13 @@ function agregarItemAlCarrito(titulo, precio, imagenSrc) {
   let nombresItemsCarrito = itemsCarrito.getElementsByClassName("carrito-item-titulo");
   for (let i = 0; i < nombresItemsCarrito.length; i++) {
     if (nombresItemsCarrito[i].innerText == titulo) {
-      alert("El item ya se encuentra en el carrito");
+      // popUp de error al querer ingresar un producto que ya se encuentra en el carrito
+      Swal.fire({
+        title: "Error!",
+        text: "El producto ya se encuentra en el carrito.",
+        icon: "error",
+        confirmButtonText: "Ok",
+      });
       return;
     }
   }
@@ -210,14 +240,50 @@ function restarCantidad(event) {
 // Elimino el item seleccionado del carrito
 function eliminarItemCarrito(event) {
   let buttonClicked = event.target;
-  buttonClicked.parentElement.parentElement.remove();
+  Swal.fire({
+    title: "¿Desea eliminar el producto?",
+    text: "Puede revertir los cambios!",
+    icon: "warning",
+    showCancelButton: true,
+    cancelButtonColor: "#d33",
+    cancelButtonText: "Cancelar",
+    confirmButtonColor: "#3085d6",
+    confirmButtonText: "Si, eliminar!",
+  }).then((result) => {
+    if (result.isConfirmed) {
+      buttonClicked.parentElement.parentElement.remove();
+      actualizarTotalCarrito();
+      ocultarCarrito();
+      Toastify({
+        text: "Producto eliminado!",
+        duration: 3000,
+        destination: "https://github.com/apvarun/toastify-js",
+        newWindow: true,
+        close: true,
+        gravity: "bottom", // `top` or `bottom`
+        position: "center", // `left`, `center` or `right`
+        stopOnFocus: true, // Prevents dismissing of toast on hover
+        style: {
+          background: "linear-gradient(to right, #b43a99, #fd1d1d, #fc9e45)",
+        },
+        onClick: function () {}, // Callback after click
+      }).showToast();
+      /*             Swal.fire(
+                'Eliminado!',
+                'El producto ha sido eliminado.',
+                'success'
+            ) */
+    }
+  });
+  //buttonClicked.parentElement.parentElement.remove();
   //Actualizo el total del carrito
   actualizarTotalCarrito();
 
-  // la siguiente funciòn controla si hay elementos en el carrito
-  // Si no hay elimino el carrito
+  /* la siguiente funciòn controla si hay elementos en el carrito
+     Si no hay elimino el carrito */
   ocultarCarrito();
 }
+
 // Funciòn que controla si hay elementos en el carrito. Si no hay oculto el carrito.
 function ocultarCarrito() {
   let carritoItems = document.getElementsByClassName("carrito-items")[0];
@@ -231,6 +297,7 @@ function ocultarCarrito() {
     items.style.width = "100%";
   }
 }
+
 // Actualizamos el total de Carrito
 function actualizarTotalCarrito() {
   // selecciono el contenedor carrito
