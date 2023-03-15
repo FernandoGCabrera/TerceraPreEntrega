@@ -60,7 +60,7 @@ function pagarClicked() {
     width: "570px",
     icon: "success",
     html: "Este mensaje se autodestruira en <b></b> millisegundos.💣💥",
-    timer: 4000,
+    timer: 3000,
     timerProgressBar: true,
     didOpen: () => {
       Swal.showLoading();
@@ -73,7 +73,6 @@ function pagarClicked() {
       clearInterval(timerInterval);
     },
   }).then((result) => {
-    /* Read more about handling dismissals below */
     if (result.dismiss === Swal.DismissReason.timer) {
       console.log("I was closed by the timer");
     }
@@ -89,6 +88,7 @@ function pagarClicked() {
   // Eliminar todos los elementos del LocalStorage
   localStorage.removeItem("carrito");
   localStorage.removeItem("carritoVisible");
+  localStorage.removeItem("carrito-total");
 
   // Ocultar el carrito
   ocultarCarrito();
@@ -112,8 +112,6 @@ function agregarAlCarritoClicked(event) {
   agregarItemAlCarrito(titulo, precio, imagenSrc);
 
   hacerVisibleCarrito();
-
-  guardarCarritoEnLocalStorage();
 }
 
 // Funcion que hace visible el carrito
@@ -129,14 +127,16 @@ function hacerVisibleCarrito() {
 }
 
 // Funcion que obtiene los items guardados del carrito
-function cargarCarritoDesdeLocalStorage() {
-  let carrito = JSON.parse(localStorage.getItem("carrito"));
-  if (carrito) {
-    for (let i = 0; i < carrito.length; i++) {
-      let item = carrito[i];
-      agregarItemAlCarrito(item.titulo, item.precio, item.imagenSrc, item.cantidad);
-    }
-  }
+function cargarCarritoDesdeJson() {
+  fetch("./carrito.json")
+    .then((response) => response.json())
+    .then((data) => {
+      for (let i = 0; i < data.length; i++) {
+        let item = data[i];
+        agregarItemAlCarrito(item.titulo, item.precio, item.imagenSrc, item.cantidad);
+      }
+    })
+    .catch((error) => console.error("Error al cargar el carrito:", error));
 }
 
 // Funciòn que agrega un item al carrito
@@ -260,22 +260,17 @@ function eliminarItemCarrito(event) {
         destination: "https://github.com/apvarun/toastify-js",
         newWindow: true,
         close: true,
-        gravity: "bottom", // `top` or `bottom`
-        position: "center", // `left`, `center` or `right`
-        stopOnFocus: true, // Prevents dismissing of toast on hover
+        gravity: "bottom",
+        position: "center",
+        stopOnFocus: true,
         style: {
           background: "linear-gradient(to right, #b43a99, #fd1d1d, #fc9e45)",
         },
         onClick: function () {}, // Callback after click
       }).showToast();
-      /*             Swal.fire(
-                'Eliminado!',
-                'El producto ha sido eliminado.',
-                'success'
-            ) */
     }
-  });
-  //buttonClicked.parentElement.parentElement.remove();
+  })
+  buttonClicked.parentElement.parentElement.remove();
   //Actualizo el total del carrito
   actualizarTotalCarrito();
 
@@ -308,7 +303,6 @@ function actualizarTotalCarrito() {
   for (let i = 0; i < carritoItems.length; i++) {
     let item = carritoItems[i];
     let precioElemento = item.getElementsByClassName("carrito-item-precio")[0];
-    //Saco el simobolo dolar y el punto de milesimos.
     let precio = parseFloat(precioElemento.innerText.replace("$", "").replace(".", ""));
     let cantidadItem = item.getElementsByClassName("carrito-item-cantidad")[0];
     console.log(precio);

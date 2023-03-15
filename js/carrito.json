@@ -1,0 +1,92 @@
+[
+  {
+    "titulo": "PS4",
+    "precio": 200000,
+    "imagenSrc": "../img/AsusRog.jpg",
+    "cantidad": 0
+  },
+  {
+    "titulo": "PS5",
+    "precio": 380000,
+    "imagenSrc": "../img/Desktop.jpg",
+    "cantidad": 0
+  },
+  {
+    "titulo": "XBOX",
+    "precio": 300000,
+    "imagenSrc": "../img/MacBook.jpg",
+    "cantidad": 0
+  },
+  {
+    "titulo": "BATTLEFIELD 2042",
+    "precio": 10000,
+    "imagenSrc": "../img/ChromeBook.jpg",
+    "cantidad": 0
+  },
+  {
+    "titulo": "CALL OF DUTY II",
+    "precio": 10000,
+    "imagenSrc": "../img/PcGamer.jpg",
+    "cantidad": 0
+  },
+  {
+    "titulo": "GRAN TURISMO 7",
+    "precio": 10000,
+    "imagenSrc": "../img/AsusRog.jpg",
+    "cantidad": 0
+  },
+  {
+    "titulo": "ASSASSINS CREED ODYSSEY",
+    "precio": 10000,
+    "imagenSrc": "../img/Desktop.jpg",
+    "cantidad": 0
+  },
+  {
+    "titulo": "THE LAST OF US I",
+    "precio": 10000,
+    "imagenSrc": "../img/MacBook.jpg",
+    "cantidad": 0
+  },
+  {
+    "titulo": "RESIDENT EVIL 4",
+    "precio": 10000,
+    "imagenSrc": "../img/ChromeBook.jpg",
+    "cantidad": 0
+  },
+  {
+    "titulo": "HORIZON",
+    "precio": 10000,
+    "imagenSrc": "../img/PcGamer.jpg",
+    "cantidad": 0
+  },
+  {
+    "titulo": "GOD OF WAR RAGNAROK",
+    "precio": 10000,
+    "imagenSrc": "../img/AsusRog.jpg",
+    "cantidad": 0
+  },
+  {
+    "titulo": "CALL OF DUTY BLACK OPS II",
+    "precio": 10000,
+    "imagenSrc": "../img/Desktop.jpg",
+    "cantidad": 0
+  },
+  {
+    "titulo": "GRAND THEFT AUTO IV",
+    "precio": 10000,
+    "imagenSrc": "../img/MacBook.jpg",
+    "cantidad": 0
+  },
+  {
+    "titulo": "RED DEAD REDEMPTION",
+    "precio": 10000,
+    "imagenSrc": "../img/ChromeBook.jpg",
+    "cantidad": 0
+  },
+  {
+    "titulo": "GEARS OF WAR 3",
+    "precio": 10000,
+    "imagenSrc": "../img/PcGamer.jpg",
+    "cantidad": 0
+  }
+]
