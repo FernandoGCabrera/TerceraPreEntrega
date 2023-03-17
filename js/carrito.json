@@ -2,91 +2,91 @@
   {
     "titulo": "PS4",
     "precio": 200000,
-    "imagenSrc": "../img/AsusRog.jpg",
+    "imagenSrc": "../img/ps4-slim-image-block-01-en-24jul20.webp",
     "cantidad": 0
   },
   {
     "titulo": "PS5",
     "precio": 380000,
-    "imagenSrc": "../img/Desktop.jpg",
+    "imagenSrc": "../img/348000-1600-auto.webp",
     "cantidad": 0
   },
   {
     "titulo": "XBOX",
     "precio": 300000,
-    "imagenSrc": "../img/MacBook.jpg",
+    "imagenSrc": "../img/XBOXSeriesX.jpg",
     "cantidad": 0
   },
   {
     "titulo": "BATTLEFIELD 2042",
     "precio": 10000,
-    "imagenSrc": "../img/ChromeBook.jpg",
+    "imagenSrc": "../img/PS4(1).jpg",
     "cantidad": 0
   },
   {
     "titulo": "CALL OF DUTY II",
     "precio": 10000,
-    "imagenSrc": "../img/PcGamer.jpg",
+    "imagenSrc": "../img/PS4(2).jpg",
     "cantidad": 0
   },
   {
     "titulo": "GRAN TURISMO 7",
     "precio": 10000,
-    "imagenSrc": "../img/AsusRog.jpg",
+    "imagenSrc": "../img/PS4(3).jpg",
     "cantidad": 0
   },
   {
     "titulo": "ASSASSINS CREED ODYSSEY",
     "precio": 10000,
-    "imagenSrc": "../img/Desktop.jpg",
+    "imagenSrc": "../img/PS4(4).jpg",
     "cantidad": 0
   },
   {
     "titulo": "THE LAST OF US I",
     "precio": 10000,
-    "imagenSrc": "../img/MacBook.jpg",
+    "imagenSrc": "../img/PS5(1).jpg",
     "cantidad": 0
   },
   {
     "titulo": "RESIDENT EVIL 4",
     "precio": 10000,
-    "imagenSrc": "../img/ChromeBook.jpg",
+    "imagenSrc": "../img/PS5(2).jpg",
     "cantidad": 0
   },
   {
     "titulo": "HORIZON",
     "precio": 10000,
-    "imagenSrc": "../img/PcGamer.jpg",
+    "imagenSrc": "../img/PS5(3).jpg",
     "cantidad": 0
   },
   {
     "titulo": "GOD OF WAR RAGNAROK",
     "precio": 10000,
-    "imagenSrc": "../img/AsusRog.jpg",
+    "imagenSrc": "../img/PS5(4).jpg",
     "cantidad": 0
   },
   {
     "titulo": "CALL OF DUTY BLACK OPS II",
     "precio": 10000,
-    "imagenSrc": "../img/Desktop.jpg",
+    "imagenSrc": "../img/XBOX360(1).jpg",
     "cantidad": 0
   },
   {
     "titulo": "GRAND THEFT AUTO IV",
     "precio": 10000,
-    "imagenSrc": "../img/MacBook.jpg",
+    "imagenSrc": "../img/XBOX360(2).jpg",
     "cantidad": 0
   },
   {
     "titulo": "RED DEAD REDEMPTION",
     "precio": 10000,
-    "imagenSrc": "../img/ChromeBook.jpg",
+    "imagenSrc": "../img/XBOX360(3).jpg",
     "cantidad": 0
   },
   {
     "titulo": "GEARS OF WAR 3",
     "precio": 10000,
-    "imagenSrc": "../img/PcGamer.jpg",
+    "imagenSrc": "../img/XBOX360(4).jpg",
     "cantidad": 0
   }
 ]
